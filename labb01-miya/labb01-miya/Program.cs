@@ -6,11 +6,49 @@ namespace About_Me
     {
         static void Main(string[] args)
         {
+            UserName();
+            UserAge();
             QuestionBank();
             Console.Read();
         }
 
-        static void QuestionBank()
+        static public void UserName()
+        {
+            Console.WriteLine("Welcome to my game! What's your name?");
+            string userName = Console.ReadLine();
+            Console.WriteLine($"Hi {userName}, let's see how much you know about me.");
+            //attempting to implement throw exception handler but unsure how to use it
+            //throw new ArgumentNullException("Name cannot be null.");
+        }
+
+        static public int UserAge()
+        {
+            bool asking = true;
+            Console.WriteLine("How old are you?");
+            while (asking)
+            {
+                try
+                {
+                    int userAge = Convert.ToInt32(Console.ReadLine());
+                    return userAge;
+                }
+                catch (FormatException fe)
+                {
+                    Console.WriteLine("Please enter a NUMERIC VALUE.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                    throw new Exception("An unknown error has occurred.");
+                }
+                finally
+                {
+                    Console.WriteLine("You're still not getting it! Enter a number.");
+                }
+            }
+            return 0;
+        }
+        static public void QuestionBank()
         {
             int answersCorrect = 0;
             int answersIncorrect = 0;
@@ -70,7 +108,7 @@ namespace About_Me
             Console.WriteLine($"You got {answersIncorrect} answer(s) wrong.");
 
         }
-        static string MyCountries(string input)
+        static public string MyCountries(string input)
         {
             string[] countries = new string[8];
             countries[0] = "Canada";

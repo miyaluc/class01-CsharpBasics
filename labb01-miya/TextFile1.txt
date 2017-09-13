@@ -1,0 +1,6 @@
+ReadMe.md
+It took me two hours to do this assignment.
+I struggled with using throw, where to place it, exactly what it does.
+I added more questions for the user in order to improve user experience by asking for user name and age.
+I referred to Microsoft Docs
+I was unable to successfully add a ReadMe file.
